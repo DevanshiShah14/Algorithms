@@ -19,7 +19,7 @@ import java.util.List;
 public class PositionsofLargeGroups {
 
 	public static void main(String args[]) {
-		String S = "abbxxxxzzy";
+		String S = "abbxxxxzzzzy";
 		System.out.println(largeGroupPositions(S));
 	}
 

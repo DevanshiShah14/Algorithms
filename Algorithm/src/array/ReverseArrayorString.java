@@ -20,6 +20,20 @@ public class ReverseArrayorString {
 			start++;
 			end--;
 		}
+		
+		/*or for array
+		int[] result = new int[arr.length];
+		int index = 0;
+		for(int i = arr.length-1; i>=0; i--) {
+			result[index] = arr[i];
+			index++;
+		}*/
+		
+		/*for string
+		String reverse = "";     
+		for(int i = str.length() - 1; i >= 0; i--)
+			reverse = reverse + str.charAt(i);*/
+		
 		System.out.println("Output arr[]: ");
 		for(int i = 0; i<arr.length; i++) {
 			System.out.print(arr[i]+ " ");
