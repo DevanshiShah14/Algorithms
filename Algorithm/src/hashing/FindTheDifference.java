@@ -32,6 +32,7 @@ public class FindTheDifference {
 		Map<Character, Integer> hash = new HashMap<Character, Integer>();
 		int count = 0;
 		for (Character chS : s.toCharArray()) {
+			count = 0;
 			if (hash.containsKey(chS))
 				count = hash.get(chS);
 			hash.put(chS, count + 1);
