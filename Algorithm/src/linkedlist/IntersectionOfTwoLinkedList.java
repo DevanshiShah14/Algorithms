@@ -1,6 +1,6 @@
 package linkedlist;
 
-/**160 Write a program to find the node at which the intersection of two singly linked lists begins.
+/*160 Write a program to find the node at which the intersection of two singly linked lists begins.
 
 
 For example, the following two linked lists:
@@ -24,52 +24,46 @@ public class IntersectionOfTwoLinkedList {
 		          next = null;
 		      }
 		  }
-	 
-	 static ListNode HeadA;
-	 static ListNode HeadB;
-	 static int length = 0;
-	 
-	 public static void main(String args[]) {
-		 ListNode List1 = HeadA;
-		 ListNode List2 = HeadB;
-		 
-		 ListNode lengthA = HeadA;
-		 ListNode lengthB = HeadB;
-		 
-		 while(lengthA!= null) {
-			 lengthA = lengthA.next;
-			 length++;
-		 }
-		 
-		 while(lengthB!= null) {
-			 lengthB = lengthB.next;
-			 length++;
-		 }
-		 
-		 System.out.println(getIntersectionNode(List1, List2));
-		 
-	 }
-	 
 
 	 public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 		 if(headA== null || headB == null) {
 			 return null;
 		 }
+		 int lengthA=0;
+		 int lengthB=0;
+		 
 		 ListNode list1 = headA;
 		 ListNode list2 = headB;
 		 
-		 while(list1 != list2 && length!=0) {
-			 if(list1==null) {
-				 list1 = headB;
-			 }
-			 else if (list2== null) {
-				 list2= headA;
-			 }
-			 list2 = list2.next;
-			 list1 = list1.next;
-			 length--;
+		 while(list1!=null) {
+			 lengthA++;
+			 list1= list1.next;
 		 }
-		 
-		return list1;    
+		 while(list2!=null) {
+			 lengthB++;
+			 list2= list2.next;
+		 }
+		 if(lengthA>lengthB) {
+			 int diff = lengthA - lengthB;
+			 for(int i=0; i<diff; i++) {
+				 if(headA!=null)
+					 headA = headA.next;
+			 }
+		 }
+		 else if(lengthB>lengthA) {
+			 int diff = lengthB - lengthA;
+			 for(int i=0; i<diff; i++) {
+				 if(headB!=null)
+					 headB = headB.next;
+			 }
+		 }
+			 
+		 while(headA!=null && headB!=null) {
+			 if(headA==headB)
+				 return headA;
+			 headA = headA.next;
+			 headB = headB.next;
+		 }
+		return null;   
 	    }
 }
